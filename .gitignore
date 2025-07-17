@@ -1,0 +1,110 @@
+# =============================================================================
+# TERRAFORM GITIGNORE - my-webApp EC2 Scheduler
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Terraform Files
+# -----------------------------------------------------------------------------
+.terraform/
+**/.terraform/
+.terraform.lock.hcl
+**/.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+*.tfplan
+*.tfplan.*
+
+# Terraform variable files (contiennent des secrets)
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform CLI configuration files
+.terraformrc
+terraform.rc
+
+# -----------------------------------------------------------------------------
+# Secrets et Credentials
+# -----------------------------------------------------------------------------
+# AWS credentials
+.aws/
+aws-credentials.json
+*.pem
+*.key
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# -----------------------------------------------------------------------------
+# Build et Cache
+# -----------------------------------------------------------------------------
+# Lambda ZIP files
+lambda/*.zip
+**/*.zip
+
+# Node modules (si vous ajoutez du JS)
+node_modules/
+npm-debug.log*
+
+# Python cache (pour Lambda)
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# -----------------------------------------------------------------------------
+# OS et IDE
+# -----------------------------------------------------------------------------
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+
+# Windows
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# Documentation et Reports
+# -----------------------------------------------------------------------------
+*.pdf
+*.bfg-report/
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+crash.log
+crash.*.log
+*.log
+
+# -----------------------------------------------------------------------------
+# Temporary Files
+# -----------------------------------------------------------------------------
+*.tmp
+*.temp
+.tmp/

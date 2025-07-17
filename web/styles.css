@@ -1,0 +1,133 @@
+/* Styles pour la page web my-webApp */
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px; 
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+}
+
+h1 { 
+    color: #2c3e50; 
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.info-box { 
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.status { 
+    color: #27ae60; 
+    font-weight: bold; 
+    font-size: 1.1em;
+}
+
+.metadata { 
+    color: #34495e; 
+    margin: 8px 0;
+    font-size: 1.05em;
+}
+
+.server-info {
+    background: linear-gradient(135deg, #e8f4fd 0%, #d4f1f4 100%);
+    border-left: 5px solid #3498db;
+}
+
+.schedule-info {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+    border-left: 5px solid #ffc107;
+}
+
+.footer {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 5px solid #6c757d;
+    font-style: italic;
+    text-align: center;
+}
+
+.refresh-btn {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.refresh-btn:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.refresh-btn:active {
+    transform: translateY(0);
+}
+
+h3 {
+    color: #2c3e50;
+    margin-top: 0;
+    font-size: 1.3em;
+}
+
+.loading {
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Animation pour le chargement */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    
+    .container {
+        padding: 25px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .info-box {
+        padding: 15px;
+        margin: 15px 0;
+    }
+}

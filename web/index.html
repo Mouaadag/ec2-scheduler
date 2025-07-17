@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serveur Web my-webApp</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            background-color: #f5f5f5; 
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        h1 { 
+            color: #2c3e50; 
+            text-align: center; 
+        }
+        .info-box { 
+            background: #ecf0f1; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 5px; 
+        }
+        .status { 
+            color: #27ae60; 
+            font-weight: bold; 
+        }
+        .metadata { 
+            color: #34495e; 
+        }
+        .server-info {
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+        }
+        .schedule-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+        .footer {
+            background: #f8f9fa;
+            border-left: 4px solid #6c757d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Hello World - Serveur my-webApp! 🌟</h1>
+        
+        <div class="info-box server-info">
+            <h3>📊 Informations du serveur</h3>
+            <p class="metadata"><strong>Instance ID:</strong> <span id="instance-id">Chargement...</span></p>
+            <p class="metadata"><strong>Type d'instance:</strong> <span id="instance-type">Chargement...</span></p>
+            <p class="metadata"><strong>Zone de disponibilité:</strong> <span id="availability-zone">Chargement...</span></p>
+            <p class="metadata"><strong>IP locale:</strong> <span id="local-ip">Chargement...</span></p>
+            <p class="metadata"><strong>IP publique:</strong> <span id="public-ip">Chargement...</span></p>
+        </div>
+        
+        <div class="info-box schedule-info">
+            <h3>🕒 Planification automatique</h3>
+            <p><strong>Semaine:</strong> Démarrage 6h UTC (8h Paris) • Arrêt 20h UTC (22h Paris)</p>
+            <p><strong>Weekend:</strong> Démarrage 8h UTC (10h Paris) • Arrêt 18h UTC (20h Paris)</p>
+            <p class="status">✅ Serveur actuellement en ligne!</p>
+        </div>
+        
+        <div class="info-box footer">
+            <p><em>Dernière mise à jour: <span id="last-update">Chargement...</span></em></p>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour récupérer les métadonnées EC2
+        async function loadMetadata() {
+            try {
+                const metadataBaseUrl = 'http://169.254.169.254/latest/meta-data/';
+                
+                // Note: En production, ces appels seraient bloqués par CORS
+                // Les données seraient injectées côté serveur ou via une API
+                document.getElementById('last-update').textContent = new Date().toLocaleString('fr-FR');
+                
+                // Simulation des données (en réalité, ces valeurs seraient injectées par le script bash)
+                document.getElementById('instance-id').textContent = 'INSTANCE_ID_PLACEHOLDER';
+                document.getElementById('instance-type').textContent = 'INSTANCE_TYPE_PLACEHOLDER';
+                document.getElementById('availability-zone').textContent = 'AZ_PLACEHOLDER';
+                document.getElementById('local-ip').textContent = 'LOCAL_IP_PLACEHOLDER';
+                document.getElementById('public-ip').textContent = 'PUBLIC_IP_PLACEHOLDER';
+                
+            } catch (error) {
+                console.error('Erreur lors du chargement des métadonnées:', error);
+            }
+        }
+
+        // Charger les métadonnées au chargement de la page
+        document.addEventListener('DOMContentLoaded', loadMetadata);
+    </script>
+</body>
+</html>

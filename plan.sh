@@ -15,7 +15,7 @@ if [ ! -d "environments/$ENVIRONMENT" ]; then
     exit 1
 fi
 
-echo "📋 Planning for $ENVIRONMENT environment..."
+echo "Planning for $ENVIRONMENT environment..."
 
 # Définir le workspace Terraform Cloud
 export TF_WORKSPACE="my-webApp-$ENVIRONMENT"
@@ -28,8 +28,8 @@ echo "🔧 Initializing Terraform Cloud with workspace: $TF_WORKSPACE..."
 terraform init
 
 # Planifier SEULEMENT avec les bonnes variables
-echo "📊 Planning deployment for $ENVIRONMENT..."
+echo "Planning deployment for $ENVIRONMENT..."
 terraform plan -var-file="environments/$ENVIRONMENT/terraform.tfvars"
 
-echo "✅ Plan completed for $ENVIRONMENT environment!"
-echo "💡 To apply these changes, run: ./deploy.sh $ENVIRONMENT"
+echo "Plan completed for $ENVIRONMENT environment!"
+echo "To apply these changes, run: ./deploy.sh $ENVIRONMENT"

@@ -15,7 +15,7 @@ if [ ! -d "environments/$ENVIRONMENT" ]; then
     exit 1
 fi
 
-echo "🚨 DESTROYING $ENVIRONMENT environment..."
+echo "DESTROYING $ENVIRONMENT environment..."
 
 # Définir le workspace Terraform Cloud
 export TF_WORKSPACE="my-webApp-$ENVIRONMENT"
@@ -24,21 +24,21 @@ export TF_WORKSPACE="my-webApp-$ENVIRONMENT"
 rm -rf .terraform/
 
 # Initialiser Terraform Cloud
-echo "🔧 Initializing Terraform Cloud with workspace: $TF_WORKSPACE..."
+echo "Initializing Terraform Cloud with workspace: $TF_WORKSPACE..."
 terraform init
 
 # Planifier la destruction
-echo "📋 Planning destruction for $ENVIRONMENT..."
+echo "Planning destruction for $ENVIRONMENT..."
 terraform plan -destroy -var-file="environments/$ENVIRONMENT/terraform.tfvars"
 
 # Demander confirmation
-echo "🚨 WARNING: This will DESTROY all resources in $ENVIRONMENT environment!"
-read -p "🤔 Are you sure you want to destroy $ENVIRONMENT? Type 'yes' to confirm: " -r
+echo "WARNING: This will DESTROY all resources in $ENVIRONMENT environment!"
+read -p " Are you sure you want to destroy $ENVIRONMENT? Type 'yes' to confirm: " -r
 
 if [[ $REPLY == "yes" ]]; then
-    echo "💥 Destroying infrastructure..."
+    echo "Destroying infrastructure..."
     terraform destroy -var-file="environments/$ENVIRONMENT/terraform.tfvars"
-    echo "✅ $ENVIRONMENT environment destroyed!"
+    echo "$ENVIRONMENT environment destroyed!"
 else
-    echo "❌ Destruction cancelled."
+    echo "Destruction cancelled."
 fi

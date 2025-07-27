@@ -15,7 +15,7 @@ if [ ! -d "environments/$ENVIRONMENT" ]; then
     exit 1
 fi
 
-echo "🚀 Deploying to $ENVIRONMENT environment..."
+echo "Deploying to $ENVIRONMENT environment..."
 
 # Définir le workspace Terraform Cloud
 export TF_WORKSPACE="my-webApp-$ENVIRONMENT"
@@ -24,20 +24,20 @@ export TF_WORKSPACE="my-webApp-$ENVIRONMENT"
 rm -rf .terraform/
 
 # Initialiser Terraform Cloud
-echo "📋 Initializing Terraform Cloud with workspace: $TF_WORKSPACE..."
+echo "Initializing Terraform Cloud with workspace: $TF_WORKSPACE..."
 terraform init
 
 # Planifier avec les bonnes variables
-echo "📋 Planning deployment..."
+echo "Planning deployment..."
 terraform plan -var-file="environments/$ENVIRONMENT/terraform.tfvars"
 
 # Demander confirmation
-read -p "🤔 Do you want to apply these changes? (y/n): " -n 1 -r
+read -p "Do you want to apply these changes? (y/n): " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "✅ Applying changes..."
+    echo "Applying changes..."
     terraform apply -var-file="environments/$ENVIRONMENT/terraform.tfvars"
-    echo "🎉 Deployment completed!"
+    echo "Deployment completed!"
 else
-    echo "❌ Deployment cancelled."
+    echo "Deployment cancelled."
 fi

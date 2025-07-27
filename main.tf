@@ -88,7 +88,7 @@ data "archive_file" "lambda_zip" {
 resource "aws_lambda_function" "start_stop_ec2" {
   function_name    = "start_stop_ec2"
   handler          = "start_stop_ec2.lambda_handler"
-  runtime          = "python3.9"
+  runtime          = "python3.11"
   role             = aws_iam_role.lambda_exec.arn
   filename         = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
